@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <!--
+    Le <head> n'est jamais visible dans le navigateur.
+    Il donne des instructions au navigateur et à Google.
+  -->
+    <meta charset="UTF-8" />
+    <!--
+    viewport = indispensable pour le mobile.
+    Sans ça, ton site sera zoomé dézoomé n'importe comment sur téléphone.
+  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mouhamed Mactar Diop — Développeur Fullstack</title>
+    <meta
+      name="description"
+      content="Portfolio de développeur fullstack basé à Dakar."
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- ========== EN-TÊTE ========== -->
+    <!-- Dans index.html — modifie le header -->
+    <header>
+      <div class="header-inner">
+        <span class="logo">MMD</span>
+        <nav>
+          <ul>
+            <li><a href="#about">À propos</a></li>
+            <li><a href="#projects">Projets</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ========== CONTENU PRINCIPAL ========== -->
+    <!--
+    Une seule balise <main> par page.
+    C'est elle que Google et les lecteurs d'écran priorisent.
+  -->
+    <main>
+      <!-- Section Hero : première chose visible -->
+      <section id="about">
+        <!--
+        h1 = UN SEUL par page. Le sujet principal de la page.
+        Ne jamais l'utiliser pour "faire grand" visuellement — c'est le rôle du CSS.
+      -->
+        <h1>Je m'appelle Mouhamed Mactar Diop</h1>
+        <p>
+          Développeur Fullstack en formation. Je construis des applications web
+          modernes avec React, Node.js et PostgreSQL.
+        </p>
+        <a href="#contact" class="btn">Me contacter</a>
+      </section>
+
+      <!-- Section Projets -->
+
+      <section id="projects">
+        <h2>Mes Projets</h2>
+        <div class="projects-grid">
+          <article>
+            <h3>Application Météo</h3>
+            <p>
+              Affiche la météo en temps réel via l'API OpenWeather. Construit en
+              JavaScript vanilla.
+            </p>
+            <!--
+          rel="noopener" = sécurité obligatoire sur tous les liens external.
+          Sans ça, la page cible peut accéder à ta page via window.opener.
+        -->
+            <a href="#" target="_blank" rel="noopener noreferrer"
+              >Voir le projet →</a
+            >
+          </article>
+          <article>
+            <h3>Portfolio Personnel</h3>
+            <p>
+              Ce portfolio — HTML5 sémantique, CSS Grid, déployé sur GitHub
+              Pages.
+            </p>
+            <a href="#" target="_blank" rel="noopener noreferrer"
+              >Voir le code →</a
+            >
+          </article>
+        </div>
+      </section>
+
+      <!-- Dans index.html — ajoute après #projects, avant #contact -->
+      <section id="skills">
+        <h2>Compétences</h2>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h3>Frontend</h3>
+            <p>HTML5 · CSS3 · JavaScript · React</p>
+          </div>
+          <div class="skill-card">
+            <h3>Backend</h3>
+            <p>Node.js · Express · REST API</p>
+          </div>
+          <div class="skill-card">
+            <h3>Base de données</h3>
+            <p>PostgreSQL · Prisma · SQL</p>
+          </div>
+          <div class="skill-card">
+            <h3>Outils</h3>
+            <p>Git · GitHub · VS Code · Vercel</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section Contact -->
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>Disponible pour des opportunités fullstack.</p>
+        <!--
+        mailto: ouvre le client mail de l'utilisateur.
+        Simple et efficace pour un portfolio.
+      -->
+        <a href="mailto:matar2822@gmail.com">matar2822@gmail.com</a>
+      </section>
+    </main>
+
+    <!-- ========== PIED DE PAGE ========== -->
+    <footer>
+      <!--
+      &copy; = entité HTML pour le symbole ©
+      Bonne habitude : toujours utiliser les entités HTML pour les caractères spéciaux.
+    -->
+      <p>&copy; 2025 Mouhamed Mactar Diop. Construit avec du vrai code.</p>
+    </footer>
+  </body>
+</html>

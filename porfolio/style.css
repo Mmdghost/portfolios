@@ -1,0 +1,248 @@
+/* ================================
+   1. RESET & BASE
+   ================================ */
+
+/*
+  Le navigateur ajoute ses propres styles par défaut (margin, padding...).
+  On les supprime pour partir d'une base propre et contrôlée.
+*/
+* {
+  margin: 0;
+  padding: 0;
+  /* box-sizing: border-box = la largeur inclut padding + border.
+     Sans ça, ajouter du padding AGRANDIT l'élément. Contre-intuitif. */
+  box-sizing: border-box;
+}
+
+/* ================================
+   2. VARIABLES CSS (Custom Properties)
+   ================================ */
+
+/*
+  On définit les couleurs et tailles UNE FOIS ici.
+  On les réutilise partout avec var(--nom).
+  Changer la couleur principale = modifier 1 seule ligne.
+*/
+:root {
+  --color-primary: #4ade80; /* Vert émeraude — ton identité visuelle */
+  --color-dark: #0f1a14; /* Fond très sombre, vert nuit */
+  --color-text: #e8f5e9; /* Texte principal — très clair sur fond sombre */
+  --color-muted: #7fad8a; /* Texte secondaire — visible mais atténué */
+  --color-card: #1a2e1f; /* Cartes légèrement plus claires que le fond */
+
+  /* Le reste ne change pas */
+  --font-main: "Segoe UI", system-ui, sans-serif;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 8rem;
+  --border-radius: 8px;
+  --transition: 0.2s ease;
+}
+
+/* ================================
+   3. BASE TYPOGRAPHIE
+   ================================ */
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-dark);
+  color: var(--color-text);
+  /* line-height: 1.6 = espacement entre lignes lisible.
+     Valeur sans unité = relative à la font-size de l'élément. */
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ================================
+   4. LAYOUT — HEADER
+   ================================ */
+
+/* Dans style.css */
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--color-primary);
+  letter-spacing: 0.05em;
+}
+nav ul {
+  /* Flexbox = la façon moderne d'aligner des éléments horizontalement */
+  display: flex;
+  gap: var(--spacing-sm);
+  /* list-style: none = supprime les puces de la liste */
+  list-style: none;
+}
+
+nav a {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  transition: color var(--transition);
+}
+
+nav a:hover {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+/* ================================
+   5. LAYOUT — SECTIONS
+   ================================ */
+
+main {
+  /* max-width = le contenu ne s'étire pas sur 4K — meilleure lisibilité */
+  max-width: 800px;
+  /* margin: 0 auto = centre le bloc horizontalement */
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+section {
+  padding: var(--spacing-lg) 0;
+}
+
+section + section {
+  border-top: 1px solid var(--color-card);
+}
+
+/* ================================
+   6. COMPOSANTS — HERO
+   ================================ */
+#about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 80vh; /* Le hero occupe presque tout l'écran */
+}
+
+#about h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  /* clamp(min, préféré, max) = taille fluide selon la largeur de l'écran */
+  margin-bottom: var(--spacing-sm);
+}
+
+#about p {
+  color: var(--color-muted);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin-bottom: var(--spacing-md);
+}
+
+/* ================================
+   7. COMPOSANTS — PROJETS
+   ================================ */
+
+/* Dans style.css — remplace le style article actuel */
+#projects .projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+article {
+  background-color: var(--color-card);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius);
+  margin-bottom: var(--spacing-sm);
+  /* transition sur transform pour l'effet hover */
+  transition: transform var(--transition);
+}
+
+article:hover {
+  /* translateY(-4px) = monte légèrement la carte au survol */
+  transform: translateY(-4px);
+}
+
+article h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-primary);
+}
+
+article p {
+  color: var(--color-muted);
+  font-size: 0.95rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+}
+
+.skill-card {
+  background-color: var(--color-card);
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius);
+  border-left: 3px solid var(--color-primary);
+}
+
+.skill-card h3 {
+  font-size: 0.9rem;
+  color: var(--color-primary);
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.skill-card p {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  line-height: 1.5;
+}
+
+/* ================================
+   8. COMPOSANTS — BOUTONS / LIENS CTA
+   ================================ */
+
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.4rem;
+  background-color: var(--color-primary);
+  color: white;
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  transition: opacity var(--transition);
+}
+
+.btn:hover {
+  opacity: 0.85;
+  text-decoration: none;
+}
+
+/* ================================
+   9. FOOTER
+   ================================ */
+
+footer {
+  text-align: center;
+  padding: var(--spacing-md);
+  color: var(--color-muted);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--color-card);
+  margin-top: var(--spacing-lg);
+}
