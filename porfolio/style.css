@@ -87,6 +87,12 @@ a:hover {
   color: var(--color-primary);
   letter-spacing: 0.05em;
 }
+
+nav a.active {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
 nav ul {
   /* Flexbox = la façon moderne d'aligner des éléments horizontalement */
   display: flex;
@@ -159,6 +165,23 @@ section + section {
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: var(--spacing-md);
   margin-top: var(--spacing-md);
+}
+
+/* État initial — invisible et décalé vers le bas */
+article,
+.skill-card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+}
+
+/* État final — visible et en place */
+article.visible,
+.skill-card.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 article {
