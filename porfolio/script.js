@@ -1,5 +1,3 @@
-const { act } = require("react");
-
 // les sections a oberver
 const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll("nav a");
